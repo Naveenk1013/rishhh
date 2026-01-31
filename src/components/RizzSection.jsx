@@ -6,16 +6,16 @@ const RizzSection = () => {
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
 
-  // Instagram content items (placeholders)
+  // Actual Instagram content items using images from /images/rizz/
   const instagramItems = [
-    { id: 1, type: 'post', caption: 'Street Luxe Vibes ✨' },
-    { id: 2, type: 'reel', caption: 'OOTD Monday' },
-    { id: 3, type: 'post', caption: 'Boss Lady Energy' },
-    { id: 4, type: 'reel', caption: 'Styling Tips' },
-    { id: 5, type: 'post', caption: 'Evening Elegance' },
-    { id: 6, type: 'reel', caption: 'Thrift Flip' },
-    { id: 7, type: 'post', caption: 'Casual Chic' },
-    { id: 8, type: 'reel', caption: 'Fashion Week Ready' },
+    { id: 1, type: 'post', caption: 'Street Luxe Vibes ✨', image: '/images/rizz/1.jpeg' },
+    { id: 2, type: 'reel', caption: 'OOTD Monday', image: '/images/rizz/2.jpeg' },
+    { id: 3, type: 'post', caption: 'Boss Lady Energy', image: '/images/rizz/3.jpeg' },
+    { id: 4, type: 'reel', caption: 'Styling Tips', image: '/images/rizz/4.jpeg' },
+    { id: 5, type: 'post', caption: 'Evening Elegance', image: '/images/rizz/5.jpeg' },
+    { id: 6, type: 'reel', caption: 'Thrift Flip', image: '/images/rizz/1.jpeg' },
+    { id: 7, type: 'post', caption: 'Casual Chic', image: '/images/rizz/2.jpeg' },
+    { id: 8, type: 'reel', caption: 'Fashion Week Ready', image: '/images/rizz/3.jpeg' },
   ]
 
   // Duplicate for seamless loop
@@ -63,12 +63,18 @@ const RizzSection = () => {
             {marqueeItems.map((item, index) => (
               <div key={`${item.id}-${index}`} className="post-item hoverable-image">
                 <div className="post-image">
-                  <div className="post-placeholder">
-                    <span className={`post-type ${item.type}`}>
+                  {/* Actual Image */}
+                  <img 
+                    src={item.image} 
+                    alt={item.caption}
+                    loading="lazy"
+                    className="post-img"
+                    onLoad={(e) => e.target.classList.add('loaded')}
+                  />
+                  <div className="post-overlay">
+                    <span className="post-type-icon">
                       {item.type === 'reel' ? '▶' : '◻'}
                     </span>
-                  </div>
-                  <div className="post-overlay">
                     <span className="post-caption">{item.caption}</span>
                   </div>
                 </div>
