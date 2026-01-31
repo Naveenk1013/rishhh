@@ -15,15 +15,15 @@ const DigitalCloset = () => {
   ]
 
   const portfolioItems = [
-    { id: 1, title: 'Power Meeting', vibe: 'boss-lady', description: 'Sharp tailoring meets confidence' },
-    { id: 2, title: 'Urban Edge', vibe: 'street-luxe', description: 'Street style with a luxe twist' },
-    { id: 3, title: 'Dream Sequence', vibe: 'ethereal', description: 'Flowing fabrics and soft palettes' },
-    { id: 4, title: 'Boardroom Ready', vibe: 'boss-lady', description: 'Making moves in style' },
-    { id: 5, title: 'Night Out', vibe: 'street-luxe', description: 'When the city lights call' },
-    { id: 6, title: 'Garden Party', vibe: 'ethereal', description: 'Whimsical and feminine' },
-    { id: 7, title: 'CEO Chic', vibe: 'boss-lady', description: 'Leading with elegance' },
-    { id: 8, title: 'Weekend Wander', vibe: 'street-luxe', description: 'Casual never looked this good' },
-    { id: 9, title: 'Fairy Tale', vibe: 'ethereal', description: 'Enchanting evening looks' },
+    { id: 1, title: 'Power Meeting', vibe: 'boss-lady', description: 'Sharp tailoring meets confidence', image: '/images/closet/boss-lady-1.png' },
+    { id: 2, title: 'Urban Edge', vibe: 'street-luxe', description: 'Street style with a luxe twist', image: '/images/closet/street-luxe-1.png' },
+    { id: 3, title: 'Dream Sequence', vibe: 'ethereal', description: 'Flowing fabrics and soft palettes', image: '/images/closet/ethereal-1.png' },
+    { id: 4, title: 'Boardroom Ready', vibe: 'boss-lady', description: 'Making moves in style', image: '/images/closet/boss-lady-2.png' },
+    { id: 5, title: 'Night Out', vibe: 'street-luxe', description: 'When the city lights call', image: '/images/closet/street-luxe-2.png' },
+    { id: 6, title: 'Garden Party', vibe: 'ethereal', description: 'Whimsical and feminine', image: '/images/closet/ethereal-2.png' },
+    { id: 7, title: 'CEO Chic', vibe: 'boss-lady', description: 'Leading with elegance', image: '/images/closet/boss-lady-3.png' },
+    { id: 8, title: 'Weekend Wander', vibe: 'street-luxe', description: 'Casual never looked this good', image: '/images/closet/street-luxe-3.png' },
+    { id: 9, title: 'Fairy Tale', vibe: 'ethereal', description: 'Enchanting evening looks', image: '/images/closet/ethereal-3.png' },
   ]
 
   const filteredItems = activeFilter === 'all' 
@@ -120,9 +120,14 @@ const DigitalCloset = () => {
                 whileHover={{ y: -8 }}
               >
                 <div className="item-image">
-                  <div className="image-placeholder">
-                    <span className="placeholder-vibe">{item.vibe.replace('-', ' ')}</span>
-                  </div>
+                  {/* Actual Image */}
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    loading="lazy"
+                    className="closet-img"
+                    onLoad={(e) => e.target.classList.add('loaded')}
+                  />
                   <div className="item-overlay">
                     <span className="item-vibe">{item.vibe.replace('-', ' ')}</span>
                     <h4 className="item-title">{item.title}</h4>

@@ -110,36 +110,14 @@ const HeroSection = () => {
         style={{ y: backgroundY }}
       >
         <div className="reel-container">
-          {/* Video placeholder with gradient overlay */}
+          {/* Hero Image */}
           <div className="reel-video">
-            <div className="video-placeholder">
-              <div className="placeholder-pattern"></div>
-              <div className="placeholder-shimmer"></div>
-              
-              {/* Animated Grid Lines */}
-              <div className="grid-lines">
-                {[...Array(10)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="grid-line horizontal"
-                    style={{ top: `${i * 10}%` }}
-                    initial={{ scaleX: 0, opacity: 0 }}
-                    animate={{ scaleX: 1, opacity: 0.1 }}
-                    transition={{ delay: i * 0.1, duration: 1 }}
-                  />
-                ))}
-                {[...Array(10)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="grid-line vertical"
-                    style={{ left: `${i * 10}%` }}
-                    initial={{ scaleY: 0, opacity: 0 }}
-                    animate={{ scaleY: 1, opacity: 0.1 }}
-                    transition={{ delay: i * 0.1 + 0.5, duration: 1 }}
-                  />
-                ))}
-              </div>
-            </div>
+            <img 
+              src="/images/hero.jpg" 
+              alt="Style by Rishhh - Fashion Consultant"
+              className="hero-image"
+              loading="eager"
+            />
             <div className="reel-overlay"></div>
           </div>
           

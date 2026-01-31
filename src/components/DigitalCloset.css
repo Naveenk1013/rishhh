@@ -1,5 +1,6 @@
 .digital-closet {
   position: relative;
+  padding: var(--spacing-xl) 0;
   background: var(--cloud-dancer);
   overflow: hidden;
 }
@@ -7,6 +8,25 @@
 .closet-header {
   text-align: center;
   margin-bottom: var(--spacing-lg);
+}
+
+/* Actual Image Styling */
+.closet-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 0.6s ease, transform 0.4s ease;
+}
+
+.closet-img.loaded {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.closet-item:hover .closet-img {
+  transform: scale(1.08);
 }
 
 /* Filter Bar */
