@@ -1,0 +1,186 @@
+.vibe-cards-section {
+  position: relative;
+  background: linear-gradient(180deg, var(--cloud-dancer) 0%, var(--cloud-dark) 100%);
+  overflow: hidden;
+}
+
+.vibe-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Cards Grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+  perspective: 1000px;
+}
+
+/* Individual Card */
+.vibe-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-smooth);
+}
+
+.vibe-card:hover {
+  box-shadow: 0 25px 60px rgba(26, 26, 26, 0.15);
+}
+
+/* Card Accent Line */
+.card-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  transition: height var(--transition-smooth);
+}
+
+.card-accent.gold {
+  background: linear-gradient(90deg, var(--metallic-gold), var(--gold-light));
+}
+
+.card-accent.ruby {
+  background: linear-gradient(90deg, var(--ruby-red), #FF4081);
+}
+
+.vibe-card:hover .card-accent {
+  height: 6px;
+}
+
+/* Card Icon */
+.card-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-md);
+  transition: transform var(--transition-smooth);
+}
+
+.card-icon.gold {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
+  color: var(--metallic-gold);
+}
+
+.card-icon.ruby {
+  background: linear-gradient(135deg, rgba(224, 17, 95, 0.2), rgba(224, 17, 95, 0.1));
+  color: var(--ruby-red);
+}
+
+.vibe-card:hover .card-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Card Content */
+.card-content {
+  flex: 1;
+}
+
+.card-title {
+  font-size: var(--fs-h3);
+  margin-bottom: var(--spacing-xs);
+  color: var(--onyx);
+}
+
+.card-subtitle {
+  display: inline-block;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--metallic-gold);
+  margin-bottom: var(--spacing-sm);
+}
+
+.card-description {
+  color: rgba(26, 26, 26, 0.7);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.7;
+}
+
+/* Features List */
+.card-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+}
+
+.card-features li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--fs-small);
+  color: var(--onyx);
+}
+
+.feature-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--metallic-gold);
+}
+
+/* Card CTA */
+.card-cta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: auto;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid rgba(26, 26, 26, 0.1);
+  transition: all var(--transition-fast);
+}
+
+.card-cta.gold {
+  color: var(--metallic-gold);
+}
+
+.card-cta.ruby {
+  color: var(--ruby-red);
+}
+
+.card-cta:hover {
+  gap: var(--spacing-sm);
+}
+
+.cta-arrow {
+  transition: transform var(--transition-fast);
+}
+
+.card-cta:hover .cta-arrow {
+  transform: translateX(4px);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .vibe-card {
+    padding: var(--spacing-md);
+  }
+  
+  .card-features {
+    grid-template-columns: 1fr;
+  }
+}

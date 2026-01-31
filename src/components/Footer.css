@@ -1,0 +1,244 @@
+.footer {
+  position: relative;
+  background: var(--onyx);
+  padding: var(--spacing-xl) 0 var(--spacing-md);
+  overflow: hidden;
+}
+
+.footer-glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Footer Content Grid */
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr 1.5fr;
+  gap: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid rgba(248, 244, 240, 0.1);
+}
+
+/* Brand Section */
+.footer-brand {
+  max-width: 300px;
+}
+
+.footer-logo {
+  display: inline-flex;
+  align-items: baseline;
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer-logo .logo-text {
+  color: var(--cloud-dancer);
+}
+
+.footer-logo .logo-accent {
+  color: var(--metallic-gold);
+  font-style: italic;
+}
+
+.brand-tagline {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-style: italic;
+  color: rgba(248, 244, 240, 0.7);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-md);
+}
+
+.brand-socials {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.social-link {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 50%;
+  color: var(--metallic-gold);
+  transition: all var(--transition-fast);
+}
+
+.social-link:hover {
+  background: var(--metallic-gold);
+  color: var(--onyx);
+  transform: translateY(-3px);
+}
+
+.social-icon {
+  font-size: 1.25rem;
+}
+
+/* Footer Links */
+.footer-links ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.footer-links a {
+  font-size: var(--fs-small);
+  color: rgba(248, 244, 240, 0.7);
+  transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--ruby-red);
+}
+
+/* Footer Headings */
+.footer-heading {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cloud-dancer);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Contact Section */
+.contact-email {
+  display: block;
+  font-size: 1rem;
+  color: var(--metallic-gold);
+  margin-bottom: var(--spacing-xs);
+  transition: color var(--transition-fast);
+}
+
+.contact-email:hover {
+  color: var(--ruby-red);
+}
+
+.contact-location {
+  font-size: var(--fs-small);
+  color: rgba(248, 244, 240, 0.5);
+}
+
+/* Newsletter */
+.newsletter-text {
+  font-size: var(--fs-small);
+  color: rgba(248, 244, 240, 0.7);
+  margin-bottom: var(--spacing-sm);
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  color: var(--cloud-dancer);
+  background: rgba(248, 244, 240, 0.05);
+  border: 1px solid rgba(248, 244, 240, 0.2);
+  border-right: none;
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.newsletter-input::placeholder {
+  color: rgba(248, 244, 240, 0.4);
+}
+
+.newsletter-input:focus {
+  border-color: var(--metallic-gold);
+}
+
+.newsletter-btn {
+  padding: 0.75rem 1.25rem;
+  background: var(--metallic-gold);
+  color: var(--onyx);
+  font-size: 1.25rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.newsletter-btn:hover {
+  background: var(--ruby-red);
+  color: var(--cloud-dancer);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--spacing-md);
+}
+
+.copyright,
+.credits {
+  font-size: 0.75rem;
+  color: rgba(248, 244, 240, 0.4);
+}
+
+.heart {
+  color: var(--ruby-red);
+  animation: pulse-glow 2s infinite;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .footer-brand {
+    grid-column: span 2;
+    max-width: none;
+    text-align: center;
+  }
+  
+  .brand-socials {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 580px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .footer-brand {
+    grid-column: span 1;
+  }
+  
+  .footer-links ul {
+    align-items: center;
+  }
+  
+  .newsletter-form {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    text-align: center;
+  }
+}

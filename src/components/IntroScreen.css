@@ -1,0 +1,177 @@
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--onyx);
+  overflow: hidden;
+}
+
+/* Animated Background */
+.intro-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.floating-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(212, 175, 55, 0.4) 0%,
+    rgba(224, 17, 95, 0.2) 50%,
+    transparent 70%
+  );
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+/* Gold Particles */
+.gold-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--metallic-gold);
+  box-shadow: 0 0 10px var(--metallic-gold);
+}
+
+/* Gradient Overlay */
+.gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at center, transparent 0%, var(--onyx) 70%),
+    linear-gradient(180deg, transparent 0%, rgba(26, 26, 26, 0.5) 100%);
+  pointer-events: none;
+}
+
+/* Content */
+.intro-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--spacing-md);
+}
+
+/* Logo Mark */
+.intro-logo-mark {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--metallic-gold), var(--gold-light));
+  border-radius: 50%;
+  margin-bottom: var(--spacing-lg);
+  box-shadow: 
+    0 0 60px rgba(212, 175, 55, 0.4),
+    0 0 120px rgba(212, 175, 55, 0.2);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.logo-letter {
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  font-weight: 600;
+  color: var(--onyx);
+}
+
+/* Text */
+.intro-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.intro-tagline {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--metallic-gold);
+}
+
+.intro-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 300;
+  color: var(--cloud-dancer);
+  white-space: nowrap;
+}
+
+.intro-line {
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--metallic-gold), transparent);
+  transform-origin: center;
+  margin: var(--spacing-sm) 0;
+}
+
+.intro-subtitle {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-style: italic;
+  color: rgba(248, 244, 240, 0.7);
+}
+
+/* Skip Button */
+.skip-btn {
+  position: absolute;
+  bottom: var(--spacing-lg);
+  right: var(--spacing-lg);
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(248, 244, 240, 0.5);
+  background: transparent;
+  border: 1px solid rgba(248, 244, 240, 0.2);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.skip-btn:hover {
+  border-color: var(--metallic-gold);
+  color: var(--metallic-gold);
+}
+
+/* Progress Bar */
+.intro-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--metallic-gold), var(--ruby-red));
+  transform-origin: left;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .intro-logo-mark {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .logo-letter {
+    font-size: 2.5rem;
+  }
+  
+  .skip-btn {
+    bottom: var(--spacing-md);
+    right: var(--spacing-md);
+  }
+}
