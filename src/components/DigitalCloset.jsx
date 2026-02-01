@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react'
-import { motion, useInView, AnimatePresence } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
+import ChromaGrid from './ChromaGrid'
 import './DigitalCloset.css'
 
 const DigitalCloset = () => {
@@ -29,31 +30,6 @@ const DigitalCloset = () => {
   const filteredItems = activeFilter === 'all' 
     ? portfolioItems 
     : portfolioItems.filter(item => item.vibe === activeFilter)
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08
-      }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, scale: 0.9, y: 20 },
-    visible: { 
-      opacity: 1, 
-      scale: 1, 
-      y: 0,
-      transition: { duration: 0.4 }
-    },
-    exit: { 
-      opacity: 0, 
-      scale: 0.9,
-      transition: { duration: 0.2 }
-    }
-  }
 
   return (
     <section id="closet" className="digital-closet section" ref={sectionRef}>
@@ -99,44 +75,22 @@ const DigitalCloset = () => {
           ))}
         </motion.div>
 
-        {/* Portfolio Grid */}
-        <motion.div 
-          className="closet-grid"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
+        {/* ChromaGrid */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          style={{ minHeight: '600px', position: 'relative' }}
           key={activeFilter}
         >
-          <AnimatePresence mode="popLayout">
-            {filteredItems.map((item) => (
-              <motion.div
-                key={item.id}
-                className="closet-item hoverable-image"
-                variants={itemVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                layout
-                whileHover={{ y: -8 }}
-              >
-                <div className="item-image">
-                  {/* Actual Image */}
-                  <img 
-                    src={item.image} 
-                    alt={item.title}
-                    loading="lazy"
-                    className="closet-img"
-                    onLoad={(e) => e.target.classList.add('loaded')}
-                  />
-                  <div className="item-overlay">
-                    <span className="item-vibe">{item.vibe.replace('-', ' ')}</span>
-                    <h4 className="item-title">{item.title}</h4>
-                    <p className="item-description">{item.description}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+          <ChromaGrid 
+            items={filteredItems}
+            radius={300}
+            columns={3}
+            damping={0.45}
+            fadeOut={0.6}
+            ease="power3.out"
+          />
         </motion.div>
       </div>
     </section>
@@ -144,3 +98,4 @@ const DigitalCloset = () => {
 }
 
 export default DigitalCloset
+

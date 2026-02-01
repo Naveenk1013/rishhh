@@ -96,7 +96,6 @@
   padding: 0.5rem;
   background: none;
   border: none;
-  cursor: pointer;
   z-index: 1001;
 }
 
@@ -135,6 +134,9 @@
   justify-content: center;
   gap: 3rem;
   z-index: 999;
+  background: rgba(26, 26, 26, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .mobile-links {

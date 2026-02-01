@@ -1,0 +1,23 @@
+.fluid-cursor-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 100000;
+  overflow: hidden;
+}
+
+.fluid-cursor-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* Hide on mobile/touch devices */
+@media (pointer: coarse) {
+  .fluid-cursor-container {
+    display: none;
+  }
+}

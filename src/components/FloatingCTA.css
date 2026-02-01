@@ -1,0 +1,116 @@
+/* Consultation Bookmark - Fixed to Left Edge */
+.floating-consultation-container {
+  position: fixed;
+  left: 0;
+  top: 40%;
+  transform: translateY(-50%);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+}
+
+/* Instagram Container - Bottom Right (Unchanged) */
+.floating-social-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9999;
+}
+
+/* Instagram Floating Button */
+.floating-instagram {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(26, 26, 26, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.floating-instagram:hover {
+  background: rgba(26, 26, 26, 1);
+  border-color: rgba(197, 81, 135, 0.5);
+  box-shadow: 0 4px 20px rgba(197, 81, 135, 0.4);
+  transform: translateY(-2px);
+}
+
+.instagram-svg-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Consultation Bookmark-Style Tab - Sleeker & Thinner */
+.floating-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 0.85rem 0.75rem 0.5rem; /* Thinner horizontal profile */
+  
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  
+  font-family: var(--font-body);
+  font-size: 0.6rem; /* Slightly smaller text */
+  font-weight: 500; /* Thinner weight */
+  letter-spacing: 0.25em; /* More air between letters */
+  text-transform: uppercase;
+  
+  color: var(--onyx);
+  background: var(--metallic-gold);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: none;
+  border-radius: 0 4px 4px 0; /* Smoother, sharper corners */
+  cursor: pointer;
+  
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  margin-left: -2px; /* Less tucked away initially */
+}
+
+.floating-cta:hover {
+  background: var(--ruby-red);
+  color: var(--cloud-dancer);
+  margin-left: 0;
+  padding-right: 1.25rem; /* Sleeker slide out */
+  box-shadow: 4px 0 15px rgba(224, 17, 95, 0.3);
+}
+
+.cta-text {
+  white-space: nowrap;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .floating-consultation-container {
+    top: 50%;
+  }
+
+  .floating-cta {
+    padding: 0.6rem 0.7rem 0.6rem 0.4rem;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+  }
+  
+  .floating-social-container {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-consultation-container {
+    top: 55%;
+  }
+
+  .floating-cta {
+    padding: 0.5rem 0.6rem 0.5rem 0.35rem;
+    letter-spacing: 0.18em;
+  }
+}

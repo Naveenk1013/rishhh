@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import './Navbar.css'
 
 const Navbar = () => {
@@ -16,6 +17,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', href: '#hero' },
+    { name: 'Gallery', href: '/gallery', isPage: true },
     { name: 'Portfolio', href: '#closet' },
     { name: 'Services', href: '#consultation' },
     { name: 'Vibe', href: '#rizz' },
@@ -58,28 +60,29 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 + 0.3 }}
             >
-              <a
-                href={link.href}
-                className="nav-link hoverable-link"
-                onClick={(e) => { e.preventDefault(); scrollToSection(link.href) }}
-              >
-                {link.name}
-                <span className="link-underline"></span>
-              </a>
+              {link.isPage ? (
+                <Link
+                  to={link.href}
+                  className="nav-link hoverable-link"
+                >
+                  {link.name}
+                  <span className="link-underline"></span>
+                </Link>
+              ) : (
+                <a
+                  href={link.href}
+                  className="nav-link hoverable-link"
+                  onClick={(e) => { e.preventDefault(); scrollToSection(link.href) }}
+                >
+                  {link.name}
+                  <span className="link-underline"></span>
+                </a>
+              )}
             </motion.li>
           ))}
         </ul>
 
-        {/* CTA Button */}
-        <motion.a
-          href="#contact"
-          className="navbar-cta btn btn-primary hoverable-link"
-          onClick={(e) => { e.preventDefault(); scrollToSection('#contact') }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Book a Session
-        </motion.a>
+
 
         {/* Mobile Menu Toggle */}
         <button
@@ -120,13 +123,7 @@ const Navbar = () => {
                 </motion.li>
               ))}
             </ul>
-            <a
-              href="#contact"
-              className="mobile-cta btn btn-primary"
-              onClick={(e) => { e.preventDefault(); scrollToSection('#contact') }}
-            >
-              Book a Session
-            </a>
+
           </motion.div>
         )}
       </AnimatePresence>

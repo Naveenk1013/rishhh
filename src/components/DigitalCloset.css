@@ -48,7 +48,6 @@
   color: var(--onyx);
   background: transparent;
   border: none;
-  cursor: pointer;
   transition: color var(--transition-fast);
 }
 

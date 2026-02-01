@@ -100,7 +100,7 @@ video {
 
 button {
   font-family: inherit;
-  cursor: pointer;
+  cursor: none;
   border: none;
   background: none;
 }
@@ -340,10 +340,61 @@ h4 {
   :root {
     --spacing-lg: 3rem;
     --spacing-xl: 5rem;
+    --spacing-2xl: 6rem;
   }
 
   body {
     cursor: auto;
+  }
+
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2.5rem;
+    --spacing-xl: 4rem;
+    --spacing-2xl: 5rem;
+    --fs-hero: clamp(2rem, 10vw, 4rem);
+    --fs-h1: clamp(1.75rem, 7vw, 3rem);
+    --fs-h2: clamp(1.5rem, 5vw, 2.5rem);
+    --fs-h3: clamp(1.25rem, 4vw, 1.75rem);
+    --fs-h4: clamp(1rem, 3vw, 1.25rem);
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .section {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.75rem;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 360px) {
+  :root {
+    --spacing-sm: 0.75rem;
+    --spacing-md: 1.25rem;
+    --fs-hero: clamp(1.75rem, 12vw, 3rem);
+  }
+  
+  .container {
+    padding: 0 0.75rem;
   }
 }
 
@@ -369,3 +420,37 @@ h4 {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
+
+/* ===== SAFE AREA FOR NOTCHED PHONES ===== */
+@supports (padding: max(0px)) {
+  .navbar {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+  
+  .floating-cta-container {
+    bottom: max(2rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== LANDSCAPE MODE ON MOBILE ===== */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-section {
+    min-height: auto;
+  }
+  
+  .hero-reel {
+    height: 50vw;
+  }
+}
+

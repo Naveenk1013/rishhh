@@ -52,7 +52,7 @@ main {
   height: 3px;
   background: linear-gradient(90deg, var(--metallic-gold), var(--ruby-red));
   transform-origin: left;
-  z-index: 9999;
+  z-index: 9000;
 }
 
 /* Mobile Touch Optimizations */
