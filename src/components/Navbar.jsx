@@ -114,12 +114,21 @@ const Navbar = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <a
-                    href={link.href}
-                    onClick={(e) => { e.preventDefault(); scrollToSection(link.href) }}
-                  >
-                    {link.name}
-                  </a>
+                  {link.isPage ? (
+                    <Link
+                      to={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      onClick={(e) => { e.preventDefault(); scrollToSection(link.href) }}
+                    >
+                      {link.name}
+                    </a>
+                  )}
                 </motion.li>
               ))}
             </ul>
